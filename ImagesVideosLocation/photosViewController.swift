@@ -12,6 +12,7 @@ import CoreData
 
 class photosViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
+    @IBOutlet weak var addLabel: UILabel!
     @IBOutlet weak var photosCollection: UICollectionView!
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -24,7 +25,6 @@ class photosViewController: UIViewController, UINavigationControllerDelegate, UI
         super.viewDidLoad()
         fetchData()
     }
-    
     
     @IBAction func pickAnImageFromCamera(_ sender: Any) {
         //shareButton.isEnabled = true
@@ -52,6 +52,9 @@ class photosViewController: UIViewController, UINavigationControllerDelegate, UI
             if imagePicker.sourceType == .camera {
                 UIImageWriteToSavedPhotosAlbum(image, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
             }
+        }
+        if allPictures.count > 0 {
+            addLabel.isHidden = true
         }
         saveImageInCoreData()
         photosCollection.reloadData()
@@ -86,8 +89,6 @@ extension photosViewController: UICollectionViewDelegate, UICollectionViewDataSo
         cell.imageCell.image = allPictures[indexPath.row]
         return cell
     }
-    
-    
 }
 
 
@@ -108,11 +109,14 @@ extension photosViewController {
                     if FileManager.default.fileExists(atPath: filePath) {
                         if let contentsOfFilePath = UIImage(contentsOfFile: filePath) {
                             allPictures.append(contentsOfFilePath)
-                            
-
                         }
                     }
                 }
+            }
+            if allPictures.count > 0 {
+                addLabel.isHidden = true
+            } else if allPictures.count == 0 {
+                addLabel.isHidden = false
             }
             photosCollection.reloadData()
         } catch {

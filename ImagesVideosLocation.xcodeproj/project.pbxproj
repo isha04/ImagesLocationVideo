@@ -16,7 +16,7 @@
 		082CC688216A99CF008D6CF3 /* PersistingImages.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 082CC686216A99CF008D6CF3 /* PersistingImages.xcdatamodeld */; };
 		089BD6B2216B4C7500B64C40 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 089BD6B1216B4C7400B64C40 /* GoogleService-Info.plist */; };
 		089BD6B4216B5EA900B64C40 /* videoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089BD6B3216B5EA900B64C40 /* videoController.swift */; };
-		08BDE17E216B973200269A33 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BDE17D216B973200269A33 /* File.swift */; };
+		08BDE17E216B973200269A33 /* video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BDE17D216B973200269A33 /* video.swift */; };
 		08BDE180216BAF8000269A33 /* youTubeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BDE17F216BAF8000269A33 /* youTubeCell.swift */; };
 		08BF33AB216A79A90048A9FF /* imageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BF33AA216A79A90048A9FF /* imageViewCell.swift */; };
 		08CAEF2F216A3B8700DFC96A /* photosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CAEF2E216A3B8600DFC96A /* photosViewController.swift */; };
@@ -35,7 +35,7 @@
 		082CC687216A99CF008D6CF3 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		089BD6B1216B4C7400B64C40 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		089BD6B3216B5EA900B64C40 /* videoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = videoController.swift; sourceTree = "<group>"; };
-		08BDE17D216B973200269A33 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		08BDE17D216B973200269A33 /* video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = video.swift; sourceTree = "<group>"; };
 		08BDE17F216BAF8000269A33 /* youTubeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = youTubeCell.swift; sourceTree = "<group>"; };
 		08BF33AA216A79A90048A9FF /* imageViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageViewCell.swift; sourceTree = "<group>"; };
 		08CAEF2E216A3B8600DFC96A /* photosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = photosViewController.swift; sourceTree = "<group>"; };
@@ -78,7 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				080A62E72169CD9A0068AC97 /* AppDelegate.swift */,
-				08BDE17D216B973200269A33 /* File.swift */,
+				08BDE17D216B973200269A33 /* video.swift */,
 				08CAEF2E216A3B8600DFC96A /* photosViewController.swift */,
 				082CC686216A99CF008D6CF3 /* PersistingImages.xcdatamodeld */,
 				08BF33AA216A79A90048A9FF /* imageViewCell.swift */,
@@ -192,13 +192,13 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-ImagesVideosLocation/Pods-ImagesVideosLocation-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
-				"${BUILT_PRODUCTS_DIR}/YouTubePlayer-Swift/YouTubePlayer_Swift.framework",
+				"${BUILT_PRODUCTS_DIR}/youtube-ios-player-helper/youtube_ios_player_helper.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YouTubePlayer_Swift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/youtube_ios_player_helper.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -231,12 +231,10 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ImagesVideosLocation/Pods-ImagesVideosLocation-resources.sh",
 				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
-				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -256,7 +254,7 @@
 				08CAEF2F216A3B8700DFC96A /* photosViewController.swift in Sources */,
 				08BF33AB216A79A90048A9FF /* imageViewCell.swift in Sources */,
 				08BDE180216BAF8000269A33 /* youTubeCell.swift in Sources */,
-				08BDE17E216B973200269A33 /* File.swift in Sources */,
+				08BDE17E216B973200269A33 /* video.swift in Sources */,
 				080541D6216A52770065CC2C /* helpers.swift in Sources */,
 				082CC688216A99CF008D6CF3 /* PersistingImages.xcdatamodeld in Sources */,
 			);
@@ -407,7 +405,10 @@
 				DEVELOPMENT_TEAM = BVY7P9CUB8;
 				INFOPLIST_FILE = ImagesVideosLocation/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.isha.ImagesVideosLocation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -424,7 +425,10 @@
 				DEVELOPMENT_TEAM = BVY7P9CUB8;
 				INFOPLIST_FILE = ImagesVideosLocation/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.isha.ImagesVideosLocation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

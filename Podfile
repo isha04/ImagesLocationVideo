@@ -6,10 +6,9 @@ target 'ImagesVideosLocation' do
   use_frameworks!
 
   pod 'GoogleMaps'
-  pod 'GooglePlaces'
   pod 'Alamofire', '~> 4.7'
   pod 'SwiftyJSON', '~> 4.0.0'
-  pod 'YouTubePlayer-Swift', '~> 1.0'
+  pod 'youtube-ios-player-helper', '~> 0.1.4'
 
   # Pods for ImagesVideosLocation
 

@@ -8,7 +8,6 @@
 
 import UIKit
 import GoogleMaps
-import GooglePlaces
 import CoreData
 
 
@@ -20,21 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
          GMSServices.provideAPIKey("AIzaSyC4eqVyY8gsciAHCJNJeYZglv0ltlMRk5s")
-         GMSPlacesClient.provideAPIKey("AIzaSyC4eqVyY8gsciAHCJNJeYZglv0ltlMRk5s")
-//        var configureError: NSError?
-//        GGLContext.sharedInstance().configureWithError(&configureError)
-//        assert(configureError == nil, "Error configuring Google services: \(configureError)")
-
         return true
     }
-    
-//    func application(_ application: UIApplication,
-//                     open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
-//        return GIDSignIn.sharedInstance().handle(url,
-//                                                 sourceApplication: sourceApplication,
-//                                                 annotation: annotation)
-//    }
-
 
 
     func applicationWillResignActive(_ application: UIApplication) {
