@@ -9,10 +9,9 @@
 import UIKit
 import CoreLocation
 import GoogleMaps
-import GooglePlaces
+//import GooglePlaces
 
 class ViewController: UIViewController {
-    
     
     var userLatitude: CLLocationDegrees = 0.0
     var userLongitude: CLLocationDegrees = 0.0
@@ -20,7 +19,7 @@ class ViewController: UIViewController {
     var locationManager = CLLocationManager()
     var currentLocation: CLLocation?
     var mapView: GMSMapView!
-    var placesClient: GMSPlacesClient!
+    //var placesClient: GMSPlacesClient!
     var zoomLevel: Float = 18.0
 
     
@@ -37,7 +36,7 @@ class ViewController: UIViewController {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestAlwaysAuthorization()
         locationManager.distanceFilter = 0.10
-        placesClient = GMSPlacesClient.shared()
+        //placesClient = GMSPlacesClient.shared()
         if CLLocationManager.locationServicesEnabled() {
             locationManager.requestLocation()
             locationManager.startUpdatingLocation()
@@ -59,6 +58,15 @@ class ViewController: UIViewController {
         self.view = mapView
         mapView.isHidden = true
     }
+    
+    @IBAction func shareLocation(_ sender: UIBarButtonItem) {
+        var objectsToShare = [Any]()
+        let link = URL(string: "http://maps.google.com/maps?q=\(userLatitude),\(userLongitude)")
+        objectsToShare.append(link as Any)
+        let activityViewController = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view
+        present(activityViewController, animated: true, completion: nil)
+        }
     
 }
 
@@ -102,6 +110,8 @@ extension ViewController: CLLocationManagerDelegate {
         print("Error: \(error)")
     }
     
+    
+    
 //    func vCardURL(from coordinate: CLLocationCoordinate2D, with name: String?) -> URL {
 //        let vCardFileURL = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("Shared Location.loc.vcf")
 //    
@@ -125,6 +135,8 @@ extension ViewController: CLLocationManagerDelegate {
 //        print(vCardString)
 //        return vCardFileURL
 //    }
+    
+    
     
 }
 
