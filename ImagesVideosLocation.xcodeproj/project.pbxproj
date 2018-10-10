@@ -14,7 +14,7 @@
 		080A62EF2169CDAE0068AC97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 080A62EE2169CDAE0068AC97 /* Assets.xcassets */; };
 		080A62F22169CDAE0068AC97 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 080A62F02169CDAE0068AC97 /* LaunchScreen.storyboard */; };
 		082CC688216A99CF008D6CF3 /* PersistingImages.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 082CC686216A99CF008D6CF3 /* PersistingImages.xcdatamodeld */; };
-		089BD6B2216B4C7500B64C40 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 089BD6B1216B4C7400B64C40 /* GoogleService-Info.plist */; };
+		084C099D216DF05B00BE2859 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 084C099C216DF05A00BE2859 /* GoogleService-Info.plist */; };
 		089BD6B4216B5EA900B64C40 /* videoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089BD6B3216B5EA900B64C40 /* videoController.swift */; };
 		08BDE17E216B973200269A33 /* video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BDE17D216B973200269A33 /* video.swift */; };
 		08BDE180216BAF8000269A33 /* youTubeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BDE17F216BAF8000269A33 /* youTubeCell.swift */; };
@@ -31,10 +31,10 @@
 		080A62EC2169CD9A0068AC97 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		080A62EE2169CDAE0068AC97 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		080A62F12169CDAE0068AC97 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		080A62F32169CDAE0068AC97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		082CC687216A99CF008D6CF3 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		089BD6B1216B4C7400B64C40 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		089BD6B3216B5EA900B64C40 /* videoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = videoController.swift; sourceTree = "<group>"; };
+		084C099C216DF05A00BE2859 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		084C099E216DF06100BE2859 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = /Users/amarjeet/Desktop/ImagesVideosLocation/ImagesVideosLocation/Info.plist; sourceTree = "<absolute>"; };
+		089BD6B3216B5EA900B64C40 /* videoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = videoController.swift; path = "../New Group/videoController.swift"; sourceTree = "<group>"; };
 		08BDE17D216B973200269A33 /* video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = video.swift; sourceTree = "<group>"; };
 		08BDE17F216BAF8000269A33 /* youTubeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = youTubeCell.swift; sourceTree = "<group>"; };
 		08BF33AA216A79A90048A9FF /* imageViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageViewCell.swift; sourceTree = "<group>"; };
@@ -77,22 +77,62 @@
 		080A62E62169CD9A0068AC97 /* ImagesVideosLocation */ = {
 			isa = PBXGroup;
 			children = (
-				080A62E72169CD9A0068AC97 /* AppDelegate.swift */,
-				08BDE17D216B973200269A33 /* video.swift */,
-				08CAEF2E216A3B8600DFC96A /* photosViewController.swift */,
-				082CC686216A99CF008D6CF3 /* PersistingImages.xcdatamodeld */,
-				08BF33AA216A79A90048A9FF /* imageViewCell.swift */,
-				080A62E92169CD9A0068AC97 /* ViewController.swift */,
-				089BD6B3216B5EA900B64C40 /* videoController.swift */,
-				080541D5216A52770065CC2C /* helpers.swift */,
-				080A62EB2169CD9A0068AC97 /* Main.storyboard */,
-				08BDE17F216BAF8000269A33 /* youTubeCell.swift */,
-				080A62EE2169CDAE0068AC97 /* Assets.xcassets */,
-				080A62F02169CDAE0068AC97 /* LaunchScreen.storyboard */,
-				080A62F32169CDAE0068AC97 /* Info.plist */,
-				089BD6B1216B4C7400B64C40 /* GoogleService-Info.plist */,
+				084C099C216DF05A00BE2859 /* GoogleService-Info.plist */,
+				084C099E216DF06100BE2859 /* Info.plist */,
+				084C0996216DE35700BE2859 /* Video */,
+				084C0997216DE38900BE2859 /* Photo */,
+				084C0998216DE3DB00BE2859 /* Location */,
+				084C0999216DE3FD00BE2859 /* HelperFiles */,
+				084C099A216DE47100BE2859 /* StroyBoard & Assets */,
 			);
 			path = ImagesVideosLocation;
+			sourceTree = "<group>";
+		};
+		084C0996216DE35700BE2859 /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				08BDE17D216B973200269A33 /* video.swift */,
+				089BD6B3216B5EA900B64C40 /* videoController.swift */,
+				08BDE17F216BAF8000269A33 /* youTubeCell.swift */,
+			);
+			path = Video;
+			sourceTree = "<group>";
+		};
+		084C0997216DE38900BE2859 /* Photo */ = {
+			isa = PBXGroup;
+			children = (
+				08CAEF2E216A3B8600DFC96A /* photosViewController.swift */,
+				08BF33AA216A79A90048A9FF /* imageViewCell.swift */,
+			);
+			path = Photo;
+			sourceTree = "<group>";
+		};
+		084C0998216DE3DB00BE2859 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				080A62E92169CD9A0068AC97 /* ViewController.swift */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
+		084C0999216DE3FD00BE2859 /* HelperFiles */ = {
+			isa = PBXGroup;
+			children = (
+				080A62E72169CD9A0068AC97 /* AppDelegate.swift */,
+				082CC686216A99CF008D6CF3 /* PersistingImages.xcdatamodeld */,
+				080541D5216A52770065CC2C /* helpers.swift */,
+			);
+			path = HelperFiles;
+			sourceTree = "<group>";
+		};
+		084C099A216DE47100BE2859 /* StroyBoard & Assets */ = {
+			isa = PBXGroup;
+			children = (
+				080A62EE2169CDAE0068AC97 /* Assets.xcassets */,
+				080A62EB2169CD9A0068AC97 /* Main.storyboard */,
+				080A62F02169CDAE0068AC97 /* LaunchScreen.storyboard */,
+			);
+			path = "StroyBoard & Assets";
 			sourceTree = "<group>";
 		};
 		7B14C09177353A227B5D70BD /* Pods */ = {
@@ -174,7 +214,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				080A62F22169CDAE0068AC97 /* LaunchScreen.storyboard in Resources */,
-				089BD6B2216B4C7500B64C40 /* GoogleService-Info.plist in Resources */,
+				084C099D216DF05B00BE2859 /* GoogleService-Info.plist in Resources */,
 				080A62EF2169CDAE0068AC97 /* Assets.xcassets in Resources */,
 				080A62ED2169CD9A0068AC97 /* Main.storyboard in Resources */,
 			);

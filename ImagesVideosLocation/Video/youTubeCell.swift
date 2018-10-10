@@ -2,7 +2,7 @@
 //  youTubeCell.swift
 //  ImagesVideosLocation
 //
-//  Created by Amarjeet on 10/8/18.
+//  Created by isha on 10/8/18.
 //  Copyright © 2018 Isha. All rights reserved.
 //
 

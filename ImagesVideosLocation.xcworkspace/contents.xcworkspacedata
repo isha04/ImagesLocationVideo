@@ -5,6 +5,12 @@
       location = "group:ImagesVideosLocation.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:ImagesVideosLocation/HelperFiles/../../GoogleService-Info.plist">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/amarjeet/Desktop/ImagesVideosLocation/ImagesVideosLocation/Info.plist">
+   </FileRef>
+   <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
 </Workspace>

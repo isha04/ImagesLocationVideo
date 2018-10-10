@@ -11,17 +11,14 @@ import Alamofire
 import SwiftyJSON
 import youtube_ios_player_helper
 
-class videoController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, YTPlayerViewDelegate {
-    
- 
-    //@IBOutlet weak var videoView: YTPlayerView!
+class videoController: UIViewController, UITableViewDelegate, UITableViewDataSource, YTPlayerViewDelegate {
+
     let apiKey = "AIzaSyBwOuUidqOttySc54DkwukcE7eLjCh8icQ"
     var searchText = "dogs"
     var videos = [Video]()
     let youtubeView = YTPlayerView()
     let closeVideoButton = UIButton()
     @IBOutlet weak var videoTable: UITableView!
-    @IBOutlet weak var seachBar: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,16 +74,6 @@ class videoController: UIViewController, UITableViewDelegate, UITableViewDataSou
         youtubeView.playVideo()
     }
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        textField.becomeFirstResponder()
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        searchText = seachBar.text!
-        fetchVideo()
-        return true
-    }
     
     @objc func closeVideo(sender: UIButton!) {
        youtubeView.stopVideo()

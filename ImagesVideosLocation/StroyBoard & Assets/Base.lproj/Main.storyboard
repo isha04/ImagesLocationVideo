@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SD6-3u-Fwp">
-                                <rect key="frame" x="0.0" y="128" width="375" height="490"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="youTubeCell" rowHeight="128" id="u6I-HA-s3L" customClass="youTubeCell" customModule="ImagesVideosLocation" customModuleProvider="target">
@@ -91,31 +91,18 @@
                                     <outlet property="delegate" destination="mNu-rM-zX4" id="nnb-eZ-b8e"/>
                                 </connections>
                             </tableView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Search Text" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YSW-nQ-8zi">
-                                <rect key="frame" x="16" y="74" width="343" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="T4B-Ym-dgY"/>
-                                </constraints>
-                                <color key="textColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="SD6-3u-Fwp" firstAttribute="bottom" secondItem="mgS-c9-5sn" secondAttribute="bottom" id="PIA-b4-in9"/>
                             <constraint firstItem="SD6-3u-Fwp" firstAttribute="trailing" secondItem="mgS-c9-5sn" secondAttribute="trailing" id="QxK-X9-3TS"/>
-                            <constraint firstItem="YSW-nQ-8zi" firstAttribute="top" secondItem="mgS-c9-5sn" secondAttribute="top" constant="10" id="T0B-uT-bt4"/>
-                            <constraint firstItem="SD6-3u-Fwp" firstAttribute="top" secondItem="YSW-nQ-8zi" secondAttribute="bottom" constant="14" id="dtC-Fb-avk"/>
-                            <constraint firstItem="YSW-nQ-8zi" firstAttribute="leading" secondItem="mgS-c9-5sn" secondAttribute="leading" constant="16" id="gOe-yC-2xm"/>
-                            <constraint firstItem="mgS-c9-5sn" firstAttribute="trailing" secondItem="YSW-nQ-8zi" secondAttribute="trailing" constant="16" id="oHp-L3-nWe"/>
+                            <constraint firstItem="SD6-3u-Fwp" firstAttribute="top" secondItem="mgS-c9-5sn" secondAttribute="top" id="xCA-BC-uAY"/>
                             <constraint firstItem="SD6-3u-Fwp" firstAttribute="leading" secondItem="mgS-c9-5sn" secondAttribute="leading" id="zQH-Wt-gxr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mgS-c9-5sn"/>
                     </view>
                     <navigationItem key="navigationItem" id="BsU-dF-cr1"/>
                     <connections>
-                        <outlet property="seachBar" destination="YSW-nQ-8zi" id="Way-gh-hXt"/>
                         <outlet property="videoTable" destination="SD6-3u-Fwp" id="8Jy-77-MoR"/>
                     </connections>
                 </viewController>
