@@ -1,7 +1,7 @@
 This project has three parts:
 
 1) Photos - In this part the user can do the following:
-    a) Click a picture in the app.  The clicked picture will be saved in the phone's image galery.
+    a) Click a picture in the app.  The clicked picture will be saved in the phone's image gallery.
     b) Import a picture from the phone's image gallery
 
 In-app persistance has been implemented using Core Data and FIleManager.
