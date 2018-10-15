@@ -26,14 +26,13 @@ class photosViewController: UIViewController, UINavigationControllerDelegate, UI
         fetchData()
     }
     
+    
     @IBAction func pickAnImageFromCamera(_ sender: Any) {
-        //shareButton.isEnabled = true
-        if cameraAuthorizationStatus == .authorized {
             imagePicker.delegate = self
             imagePicker.sourceType = .camera
             present(imagePicker, animated: true, completion: nil)
-        } else {
-            alertWithTitle(title: "Access Denied", message: "Change permission settings to make use of the app")
+        if cameraAuthorizationStatus == .denied || cameraAuthorizationStatus == .restricted || cameraAuthorizationStatus == .notDetermined {
+            alertWithTitle(title: "", message: "Change permission settings to click pictures")
         }
     }
     

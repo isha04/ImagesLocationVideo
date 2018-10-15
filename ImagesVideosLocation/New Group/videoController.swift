@@ -14,7 +14,7 @@ import youtube_ios_player_helper
 class videoController: UIViewController, UITableViewDelegate, UITableViewDataSource, YTPlayerViewDelegate {
 
     let apiKey = "AIzaSyBwOuUidqOttySc54DkwukcE7eLjCh8icQ"
-    var searchText = "dogs"
+    var searchText = "swift,programming,language"
     var videos = [Video]()
     let youtubeView = YTPlayerView()
     let closeVideoButton = UIButton()
