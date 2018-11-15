@@ -7,17 +7,8 @@
 //
 
 struct Video {
-    var videoID: String
-    var videoTitle: String
-    var videoThumbNailURL: String
-    var videoChannel: String
-    
-    init(videoID: String, videoTitle: String, videoThumbNailURL: String, videoChannel: String) {
-        self.videoID = videoID
-        self.videoTitle = videoTitle
-        self.videoThumbNailURL = videoThumbNailURL
-        self.videoChannel = videoChannel
-    }
-    
-
+    let videoID: String
+    let videoTitle: String
+    let videoThumbNailURL: String
+    let videoChannel: String
 }

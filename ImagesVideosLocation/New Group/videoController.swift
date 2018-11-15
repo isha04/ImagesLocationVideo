@@ -11,13 +11,18 @@ import Alamofire
 import SwiftyJSON
 import youtube_ios_player_helper
 
+// Just a tip: Always start class names with capital letters. Small letter class names is wrong according to convention. Just saying. :P
 class videoController: UIViewController, UITableViewDelegate, UITableViewDataSource, YTPlayerViewDelegate {
 
     let apiKey = "AIzaSyBwOuUidqOttySc54DkwukcE7eLjCh8icQ"
-    var searchText = "swift,programming,language"
-    var videos = [Video]()
-    let youtubeView = YTPlayerView()
-    let closeVideoButton = UIButton()
+    private let searchText = "swift,programming,language"
+    
+    // Use let instead of var in Video model. We don't have to change those properties ever. So make them immutable. Init is also not needed in struct as struct automatically provides default init.
+    private var videos = [Video]()
+    
+    private let youtubeView = YTPlayerView()
+    private let closeVideoButton = UIButton()
+    
     @IBOutlet weak var videoTable: UITableView!
     
     override func viewDidLoad() {
@@ -31,7 +36,7 @@ class videoController: UIViewController, UITableViewDelegate, UITableViewDataSou
         addSwipeDownGestureRecognizer()
     }
     
-    func fetchVideo() {
+    private func fetchVideo() {
         Alamofire.request("https://www.googleapis.com/youtube/v3/search?part=snippet&fields=items(id,snippet(title,channelTitle,thumbnails))&order=viewCount&q=\(searchText)&type=video&maxResults=25&key=\(apiKey)").responseJSON(completionHandler: { response in
             guard let validResponse = response.result.value else { return }
             
@@ -71,6 +76,7 @@ class videoController: UIViewController, UITableViewDelegate, UITableViewDataSou
         let selectedVideo = videos[indexPath.row]
         
         youtubeView.alpha = 1.0
+        
         youtubeView.load(withVideoId: selectedVideo.videoID, playerVars: ["controls": 1, "playsinline": 1, "autohide": 1, "showinfo": 1, "autoplay": 1, "modestbranding": 1])
         
         //https://github.com/youtube/youtube-ios-player-helper/issues/292
@@ -81,17 +87,20 @@ class videoController: UIViewController, UITableViewDelegate, UITableViewDataSou
         youtubeView.playVideo()
     }
     
-    @objc func closeVideo(sender: UIButton!) {
+    @objc private func closeVideo(sender: UIButton!) {
         youtubeView.stopVideo()
         
+        // No need to remove YouTubeView everytime and then laying out again. Instead we can just hide it. This will reduce memory footprint of app.
         UIView.animate(withDuration: 0.5) {
             self.youtubeView.alpha = 0.0
         }
     }
     
-    func setUpVideo() {
+    // YouTube player won't cover the whole screen because of safe area layout guide. I tried to override safe area layout guide in our app but it seems like the library which you're using doesn't let you add YouTubeView beyond safe area layout guides.
+    private func setUpVideo() {
         youtubeView.alpha = 0.0
         
+        // Adding YoutubeView to app window so it also covers navigation bar and tab bar.
         guard let window = UIApplication.shared.keyWindow else { return }
         
         window.addSubview(youtubeView)
@@ -116,7 +125,7 @@ class videoController: UIViewController, UITableViewDelegate, UITableViewDataSou
         youtubeView.addGestureRecognizer(swipeDownGesture)
     }
     
-    func setUpButton() {
+    private func setUpButton() {
         closeVideoButton.frame = CGRect(x: 0 , y: 0, width: 30, height: 32)
         youtubeView.addSubview(closeVideoButton)
         closeVideoButton.setTitle("x", for: .normal)
