@@ -22,8 +22,13 @@ class videoController: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.youtubeView.delegate = self
+        
+        setUpVideo()
+        
         fetchVideo()
+        addSwipeDownGestureRecognizer()
     }
     
     func fetchVideo() {
@@ -59,11 +64,13 @@ class videoController: UIViewController, UITableViewDelegate, UITableViewDataSou
         return cell
     }
     
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+        
         let selectedVideo = videos[indexPath.row]
-        setUpVideo()
-        //setUpButton()
+        
+        youtubeView.alpha = 1.0
         youtubeView.load(withVideoId: selectedVideo.videoID, playerVars: ["controls": 1, "playsinline": 1, "autohide": 1, "showinfo": 1, "autoplay": 1, "modestbranding": 1])
         
         //https://github.com/youtube/youtube-ios-player-helper/issues/292
@@ -74,35 +81,40 @@ class videoController: UIViewController, UITableViewDelegate, UITableViewDataSou
         youtubeView.playVideo()
     }
     
-    
     @objc func closeVideo(sender: UIButton!) {
-       youtubeView.stopVideo()
-        UIView.animate(withDuration: 1, animations: ({
+        youtubeView.stopVideo()
+        
+        UIView.animate(withDuration: 0.5) {
             self.youtubeView.alpha = 0.0
-        }), completion: { _ in
-            self.youtubeView.removeFromSuperview()
-        })
-       
+        }
     }
     
     func setUpVideo() {
-        youtubeView.frame  = CGRect(x: 0 , y: 423, width: self.view.frame.width, height: 180)
-        self.view.addSubview(youtubeView)
-        var swipeDown: UISwipeGestureRecognizer?
-        swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(closeVideo))
-        swipeDown?.direction = .down
-        youtubeView.addGestureRecognizer(swipeDown!)
+        youtubeView.alpha = 0.0
         
-        //youtubeView.translatesAutoresizingMaskIntoConstraints = false
-//        let leadingConstraint = NSLayoutConstraint(item: youtubeView, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1, constant: 0)
-//        let trailingConstraint = NSLayoutConstraint(item: youtubeView, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1, constant: 0)
-//        let bottomConstraint = NSLayoutConstraint(item: youtubeView, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: 0)
-//        view.addConstraints([leadingConstraint, trailingConstraint, bottomConstraint])
-        //youtubeView.addConstraint(NSLayoutConstraint(item: self, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 154))
+        guard let window = UIApplication.shared.keyWindow else { return }
         
+        window.addSubview(youtubeView)
         
+        youtubeView.translatesAutoresizingMaskIntoConstraints = false
+        
+        let topConstraint = youtubeView.topAnchor.constraint(equalTo: window.topAnchor, constant: 0)
+        let leadingConstraint = youtubeView.leadingAnchor.constraint(equalTo: window.safeAreaLayoutGuide.leadingAnchor, constant: 0)
+        let trailingConstraint = youtubeView.trailingAnchor.constraint(equalTo: window.safeAreaLayoutGuide.trailingAnchor, constant: 0)
+        let bottomConstraint = youtubeView.bottomAnchor.constraint(equalTo: window.bottomAnchor, constant: 0)
+        
+        NSLayoutConstraint.activate([topConstraint,
+                                     leadingConstraint,
+                                     trailingConstraint,
+                                     bottomConstraint])
     }
     
+    private func addSwipeDownGestureRecognizer() {
+        let swipeDownGesture = UISwipeGestureRecognizer(target: self, action: #selector(closeVideo))
+        swipeDownGesture.direction = .down
+        
+        youtubeView.addGestureRecognizer(swipeDownGesture)
+    }
     
     func setUpButton() {
         closeVideoButton.frame = CGRect(x: 0 , y: 0, width: 30, height: 32)
@@ -116,10 +128,4 @@ class videoController: UIViewController, UITableViewDelegate, UITableViewDataSou
 //        let topConstraint = NSLayoutConstraint(item: closeVideoButton, attribute: .top, relatedBy: .equal, toItem: youtubeView, attribute: .trailing, multiplier: 1, constant: 0)
 //       closeVideoButton.addConstraints([leadingConstraint, topConstraint])
     }
-    
 }
-
-
-
-
-
