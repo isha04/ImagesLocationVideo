@@ -13,7 +13,7 @@ import youtube_ios_player_helper
 
 // Just a tip: Always start class names with capital letters. Small letter class names is wrong according to convention. Just saying. :P
 class videoController: UIViewController, UITableViewDelegate, UITableViewDataSource, YTPlayerViewDelegate {
-
+    
     let apiKey = "AIzaSyBwOuUidqOttySc54DkwukcE7eLjCh8icQ"
     private let searchText = "swift,programming,language"
     
